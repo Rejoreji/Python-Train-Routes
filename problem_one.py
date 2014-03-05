@@ -78,11 +78,11 @@ class TrainsTests(unittest.TestCase):
         self.d = Town('d')
         self.e = Town('e')
 
-        self.routes.addToRouteTable(self.a, Stop(self.a, self.b, 5).next(Stop(self.a, self.d, 5).next(Stop(self.a, self.e, 7))))
-        self.routes.addToRouteTable(self.b, Stop(self.b, self.c, 4))
-        self.routes.addToRouteTable(self.c, Stop(self.c, self.d, 8).next(Stop(self.c, self.e, 2)))
-        self.routes.addToRouteTable(self.d, Stop(self.d, self.c, 8).next(Stop(self.d, self.e, 6)))
-        self.routes.addToRouteTable(self.e, Stop(self.e, self.b, 3))
+        self.routes.add_route_to_table(self.a, Stop(self.a, self.b, 5).next(Stop(self.a, self.d, 5).next(Stop(self.a, self.e, 7))))
+        self.routes.add_route_to_table(self.b, Stop(self.b, self.c, 4))
+        self.routes.add_route_to_table(self.c, Stop(self.c, self.d, 8).next(Stop(self.c, self.e, 2)))
+        self.routes.add_route_to_table(self.d, Stop(self.d, self.c, 8).next(Stop(self.d, self.e, 6)))
+        self.routes.add_route_to_table(self.e, Stop(self.e, self.b, 3))
 
     def test_read_input(self):
         self.assertNotEquals(self.trains.schedule_data, "")
@@ -180,7 +180,7 @@ class TrainsTests(unittest.TestCase):
         to C.
         Output #8: 9
         '''
-        shortest_route = self.routes.shortestRoute(self.a, self.c)
+        shortest_route = self.routes.shortest_route(self.a, self.c)
         self.assertEquals(9, shortest_route)
 
     def shortest_route_B_to_B(self):
@@ -189,15 +189,16 @@ class TrainsTests(unittest.TestCase):
         to B.
         Output #9: 9
         '''
-        shortest_route = self.routes.shortestRoute(self.c, self.c)
+        shortest_route = self.routes.shortest_route(self.c, self.c)
         self.assertEquals(9, shortest_route)
 
-    def num_diff_routes_C_to_C_less_30(self):
+    def test_num_diff_routes_C_to_C_less_30(self):
         '''
         10. The number of different routes from C to C with a distance of less than 30.
         Output #10: 7
         '''
-        pass
+        num_routes_within = self.routes.num_routes_within(self.c, self.c, 30)
+        self.assertEquals(7, num_routes_within)
 
 
 def main():
