@@ -131,11 +131,6 @@ class Routes:
                         return self.find_shortest_route(stop.destination, town_end, distance, shortest_route)
                     else:
                         return shortest_route
-
-
-
-
-
             else:
                 return "NO SUCH ROUTE"
 
@@ -189,6 +184,8 @@ class Routes:
             return "NO SUCH ROUTE"
 
         return routes
+
+
 
 
 
