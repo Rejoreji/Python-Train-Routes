@@ -71,7 +71,11 @@ REQUIREMENTS
 
 USAGE
 =====
+Download the zip file, extract.  Open a command terminal window into the extracted directory and run:
 > python main.py
+
+I have included the trains schedule in the Trains model in the libs directory.  The txt file itself lives in
+the data folder. 
 
 The results are written to the standard output:
 - answer for each task from the file is on a separate line
